@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jennifer's Styled Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Karla:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/sunflower.ico">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/styledcrud.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.1/purify.min.js"></script>
+    <script src="https://kit.fontawesome.com/af94c70e8e.js" crossorigin="anonymous"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1T9WLW6T5H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1T9WLW6T5H');
+</script>
+<body>
+    <div class="layout">
+        <header>
+            <nav>
+            <section id="toggle">
+                <input type="checkbox">
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul>
+                    <li><a href="hw4.html">HW4</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="eds124br.html">Teaching</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                </section>
+            </nav>
+        </header>
+    <main>
+        <h1> Blog </h1>
+
+        
+
+        <dialog id="addD"> 
+            <form method="dialog">
+                <label for="postTitle"> Post Title:</label>
+                <input type="text" name="postTitle" id="postTitle">
+                <br><br>
+                <label for="postDate"> Post Date:</label>
+                <input type="date" name="postDate" id="postDate">
+                <br><br>
+                <p> Post Summary:</p>
+                <textarea id="postSummary" rows="3" cols="35"></textarea>
+                <br><br>
+                <div class="dialogbuttons"> 
+                    <button class="dialogbutton" value="submit">Save</button>
+                    <button class="dialogbutton" value="cancel">Cancel</button>
+                </div>
+                
+            </form>
+        </dialog>
+
+        <dialog id="confirmD"> 
+            <form method="dialog">
+                <p id="confirmP"> Do you confirm this?</p>
+                <div class="dialogbuttons"> 
+                <button class="dialogbutton" value="submit">OK</button>
+                <button class="dialogbutton" value="cancel">Cancel</button>
+            </div>
+            </form>
+        </dialog>
+
+        <table id="postList">
+            <tr>
+                <th> Post Title </th>
+                <th> Post Date </th>
+                <th> Post Summary </th>
+            </tr>
+        </table>
+        <button id="addB" type="button">Post</button>
+        <output id="outputText"></output>
+        <!-- <script type="module" src="blog.js"></script> -->
+        <script src="blog.js"></script>
+        
+    </main>
+
+    <footer>
+        <hr>
+        <p> Thank you for checking my website out! Feel free to contact me below! </p>
+        <a href="contact.html">Contact Me</a>
+    </footer>
+</div>
+</body>
+</html>

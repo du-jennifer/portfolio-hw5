@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jennifer's Blog</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.1/purify.min.js"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1T9WLW6T5H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1T9WLW6T5H');
+</script>
+<body>
+
+        <dialog id="addD"> 
+            <form method="dialog">
+                <label for="postTitle"> Post Title:</label>
+                <input type="text" name="postTitle" id="postTitle">
+                <br><br>
+                <label for="postDate"> Post Date:</label>
+                <input type="date" name="postDate" id="postDate">
+                <br><br>
+                <p> Post Summary:</p>
+                <textarea id="postSummary" rows="3" cols="40"></textarea>
+                <br><br>
+                <button value="submit">Save</button>
+                <button value="cancel">Cancel</button>
+            </form>
+        </dialog>
+
+        <dialog id="confirmD"> 
+            <form method="dialog">
+                <p> Do you confirm this?</p>
+                <button value="submit">OK</button>
+                <button value="cancel">Cancel</button>
+            </form>
+        </dialog>
+
+        <table id="postList">
+            <tr>
+                <th> Post Title </th>
+                <th> Post Date </th>
+                <th> Post Summary </th>
+            </tr>
+        </table>
+
+        <button id="addB" type="button">Post</button>
+        <output id="outputText"></output>
+
+        <!-- <script type="module" src="blog.js"></script> -->
+        <script src="blog.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Native Dialog</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.1/purify.min.js"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1T9WLW6T5H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1T9WLW6T5H');
+</script>
+<body>
+
+    <button id="alertB" type="button">Alert</button>
+    <button id="confirmB" type="button">Confirm</button>
+    <button id ="promptB" type="button">Prompt</button>
+    <button id ="safePromptB" type="button">Safer Prompt</button>
+    <output id="outputText"></output>
+
+    <script>
+        window.onload = (event) => {
+            document.getElementById("alertB").addEventListener("click",alertButton);
+            function alertButton(){
+                window.alert("Alert Pressed!");
+            }
+
+            document.getElementById("confirmB").addEventListener("click",confirmButton);
+            function confirmButton(){
+                let text = "The value returned by the confirm method is: ";
+                if (window.confirm("Do you confirm this?") == true){
+                    text = text.concat("OK");
+                } else {
+                    text = text.concat("Cancel");
+                }
+                document.getElementById("outputText").innerHTML = text;
+            }
+
+            document.getElementById("promptB").addEventListener("click",promptButton);
+            function promptButton(){
+                let text = "The value returned by the prompt method is: ";
+                let name = window.prompt("What is your name?");
+                if (name == null){
+                    text = "User didn’t enter anything";
+                } else {
+                    text = text.concat(name);
+                }
+                document.getElementById("outputText").innerHTML =text;
+            }
+            
+            document.getElementById("safePromptB").addEventListener("click",safePromptButton);
+            function safePromptButton(){
+                let text = "The value returned by the prompt method is: ";
+                let name = window.prompt("What is your name?");
+                if (name == null){
+                    text = "User didn’t enter anything";
+                } else {
+                    //let templateName = `${name}`;
+                    let cleanName = DOMPurify.sanitize(name);
+                    text = text.concat(cleanName);
+                    // text = name;
+                    // text = text.concat(templateName);
+                    // text = text.concat(cleanName);
+                    //let a = "hello";
+                    //text = `damn ${text}`;
+                    // <img src=x onerror=alert(1)//> input can be purified
+                }
+                document.getElementById("outputText").innerHTML = text;
+            }
+        }
+    </script>
+</body>
+</html>
