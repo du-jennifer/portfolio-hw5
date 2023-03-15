@@ -1,0 +1,12 @@
+button{
+    border: solid #695BA0 1px; 
+    border-radius: 30px;
+    padding: 12px 20px;
+    margin: 5px;
+    text-align: center;
+    color: #695BA0;
+    background-color: white;
+}
+button:hover {
+    background-color: rgba(105, 91, 160, 0.2);
+}

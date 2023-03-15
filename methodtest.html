@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jennifer's Method Test</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Karla:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/sunflower.ico">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/methodtest.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1T9WLW6T5H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1T9WLW6T5H');
+      </script>
+</head>
+<body>
+    <div class="layout">
+        <header>
+            <nav>
+            <section id="toggle">
+                <input type="checkbox">
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul>
+                    <li><a href="methodtest.html">1.MethodTest</a></li>
+                    <li><a href="webcomponent.html">2.ButtonCount</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="eds124br.html">Teaching</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                </section>
+            </nav>
+        </header>
+    <main>
+        <h1> HW 5 Part 1: Method Test </h1>
+        <form id="submitForm" action="methodtest.html"> 
+            <label for="id">Record ID:</label>
+            <input type="text" id="id" name="id"> 
+            <br><br>
+            <label for="article_name">Article Name:</label>
+            <input type="text" id="article_name" name="article_name"> 
+            <br><br>
+            <label for="article_body"> Article Body:</label>
+            <textarea id="article_body" name="article_body" rows="5" cols="37"></textarea>
+            <br><br>
+            
+            <label for="article_date">Date:</label>
+            <input type="text" value="" id="article_date" name="article_date" size=55 readonly>
+            <script>
+                const date = new Date();
+                //console.log(date)
+                document.getElementById('article_date').value = date;
+            </script>
+        </form>
+        <br><br>
+        <button onclick="postFunction()">  postBtn </button>
+        <button onclick="getFunction()">  getBtn </button>
+        <button onclick="putFunction()">  putBtn </button>
+        <button onclick="deleteFunction()">  deleteBtn </button>
+        <br><br>
+        <pre><output id="outText"></output></pre>
+        <script src="methodtest.js"></script>
+
+    </main>
+
+    <footer>
+        <hr>
+        <p> Thank you for checking my website out! Feel free to contact me below! </p>
+        <a href="contact.html">Contact Me</a>
+    </footer>
+</div>
+</body>
+</html>
