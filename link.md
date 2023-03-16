@@ -1,6 +1,5 @@
-Solutions:
+Part 1:
 https://jenniferduportfoliohw5.netlify.app/methodtest.html
-https://jenniferduportfoliohw5.netlify.app/webcomponent.html
 
-Github:
-https://github.com/du-jennifer/portfolio-hw5
+Part 2:
+https://jenniferduportfoliohw5.netlify.app/webcomponent.html

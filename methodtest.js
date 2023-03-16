@@ -15,9 +15,7 @@ function postFunction(){
         .then((response) => response.text())
         .then((text) => {
             outputText.innerHTML = text;
-            //console.log(text);
         })
-        console.log('fetch rn');
 
     // xmlhttprequest
     } else {
@@ -30,7 +28,6 @@ function postFunction(){
             }
         } 
         xmreq.send(formData);
-        console.log('xmlhttprequest rn');
     }
     
 }
@@ -47,8 +44,7 @@ function getFunction(){
         .then((text) => {
             outputText.innerHTML = text;
         })
-        console.log('fetch rn');
-        
+
     // xmlhttprequest
     } else {
         var xmreq = new XMLHttpRequest();
@@ -59,7 +55,6 @@ function getFunction(){
             }
         } 
         xmreq.send(formData);
-        console.log('xmlhttprequest rn');
     }
 }
 
@@ -78,7 +73,6 @@ function putFunction(){
         .then((text) => {
             outputText.innerHTML = text;
         })
-        console.log('fetch rn');
 
     // xmlhttprequest
     } else {
@@ -91,7 +85,6 @@ function putFunction(){
             
         } 
         xmreq.send(formData);
-        console.log('xmlhttprequest rn');
     }
 }
 
@@ -109,7 +102,6 @@ function deleteFunction(){
         .then((text) => {
             outputText.innerHTML = text;
         })
-        console.log('fetch rn');
 
     // xmlhttprequest
     } else {
@@ -121,6 +113,5 @@ function deleteFunction(){
             }
         } 
         xmreq.send(formData);
-        console.log('xmlhttprequest rn');
     }
 }
