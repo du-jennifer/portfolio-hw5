@@ -15,9 +15,6 @@ class ButtonCount extends HTMLElement{
         
         this.shadowRoot.appendChild(bttn);
     }
-
-    
-
 }
 
 customElements.define("button-count", ButtonCount);

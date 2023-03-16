@@ -61,11 +61,20 @@
                 document.getElementById('article_date').value = date;
             </script>
         </form>
+
+        <br><br>
+        <p>Please select way: </p>
+        <label for="fetchWay">Fetch</label>
+        <input type="radio" name="way" id="fetchWay" value="Fetch" checked>
+        <label for="XMLWay">XMLHTTPRequest</label>
+        <input type="radio" name="way" id="XMLWay" value="XMLHTTPRequest">
+
         <br><br>
         <button onclick="postFunction()">  postBtn </button>
         <button onclick="getFunction()">  getBtn </button>
         <button onclick="putFunction()">  putBtn </button>
         <button onclick="deleteFunction()">  deleteBtn </button>
+        
         <br><br>
         <pre><output id="outText"></output></pre>
         <script src="methodtest.js"></script>

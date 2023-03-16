@@ -1,66 +1,126 @@
 let outputText = document.getElementById('outText');
 let formContent = document.getElementById('submitForm');
 let formMethod = document.getElementById("submitForm").method;
+let radioSelect = document.getElementsByName("way");
 function postFunction(){
     formMethod = "POST";
-    //document.forms[0].submit();
-    var xmreq = new XMLHttpRequest();
     var formData = new FormData(formContent);
-    xmreq.open('POST','https://httpbin.org/post');
-    //xmreq.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-    xmreq.onload = () => {
-        if (xmreq.readyState == XMLHttpRequest.DONE){
-            //let dataObj = JSON.parse(xmreq.response);
-            //console.log(dataObj);
-            let rsp = xmreq.responseText;
 
-            outputText.innerHTML = rsp;
-            //console.log(xmreq.responseText);
-            //alert(xmreq.responseText);
-        }
-        
-    } 
-    xmreq.send(formData);
+    // fetch method
+    if (radioSelect[0].checked) {
+        fetch("https://httpbin.org/post",{
+            method: "POST",
+            body: formData,
+        })
+        .then((response) => response.text())
+        .then((text) => {
+            outputText.innerHTML = text;
+            //console.log(text);
+        })
+        console.log('fetch rn');
+
+    // xmlhttprequest
+    } else {
+        var xmreq = new XMLHttpRequest();
+        xmreq.open('POST','https://httpbin.org/post');
+        xmreq.onload = () => {
+            if (xmreq.readyState == XMLHttpRequest.DONE){
+                let rsp = xmreq.responseText;
+                outputText.innerHTML = rsp;
+            }
+        } 
+        xmreq.send(formData);
+        console.log('xmlhttprequest rn');
+    }
+    
 }
 
 function getFunction(){
     formMethod = "GET";
-    var xmreq = new XMLHttpRequest();
     var formData = new FormData(formContent);
-    xmreq.open('GET','https://httpbin.org/get');
-    xmreq.onload = () => {
-        if (xmreq.readyState == XMLHttpRequest.DONE){
-            outputText.innerHTML = xmreq.responseText;
-        }
+    let queryString = new URLSearchParams(formData).toString();
+
+    // fetch method
+    if (radioSelect[0].checked) {
+        fetch("https://httpbin.org/get?" + queryString)
+        .then((response) => response.text())
+        .then((text) => {
+            outputText.innerHTML = text;
+        })
+        console.log('fetch rn');
         
-    } 
-    xmreq.send(formData);
+    // xmlhttprequest
+    } else {
+        var xmreq = new XMLHttpRequest();
+        xmreq.open('GET','https://httpbin.org/get?'+ queryString);
+        xmreq.onload = () => {
+            if (xmreq.readyState == XMLHttpRequest.DONE){
+                outputText.innerHTML = xmreq.responseText;
+            }
+        } 
+        xmreq.send(formData);
+        console.log('xmlhttprequest rn');
+    }
 }
 
 function putFunction(){
     formMethod = "POST";
-    var xmreq = new XMLHttpRequest();
     var formData = new FormData(formContent);
-    xmreq.open('PUT','https://httpbin.org/put');
-    xmreq.onload = () => {
-        if (xmreq.readyState == XMLHttpRequest.DONE){
-            outputText.innerHTML = xmreq.responseText;
-        }
-        
-    } 
-    xmreq.send(formData);
+    
+    // fetch method
+    if (radioSelect[0].checked) {
+        var formData = new FormData(formContent);
+        fetch("https://httpbin.org/put",{
+            method: "PUT",
+            body: formData,
+        })
+        .then((response) => response.text())
+        .then((text) => {
+            outputText.innerHTML = text;
+        })
+        console.log('fetch rn');
+
+    // xmlhttprequest
+    } else {
+        var xmreq = new XMLHttpRequest();
+        xmreq.open('PUT','https://httpbin.org/put');
+        xmreq.onload = () => {
+            if (xmreq.readyState == XMLHttpRequest.DONE){
+                outputText.innerHTML = xmreq.responseText;
+            }
+            
+        } 
+        xmreq.send(formData);
+        console.log('xmlhttprequest rn');
+    }
 }
 
 function deleteFunction(){
     formMethod = "GET";
-    var xmreq = new XMLHttpRequest();
     var formData = new FormData(formContent);
-    xmreq.open('DELETE','https://httpbin.org/delete');
-    xmreq.onload = () => {
-        if (xmreq.readyState == XMLHttpRequest.DONE){
-            outputText.innerHTML = xmreq.responseText;
-        }
-        
-    } 
-    xmreq.send(formData);
+    let queryString = new URLSearchParams(formData).toString();
+
+    // fetch method
+    if (radioSelect[0].checked) {
+        fetch("https://httpbin.org/delete?" + queryString,{
+        method: "DELETE",
+        })
+        .then((response) => response.text())
+        .then((text) => {
+            outputText.innerHTML = text;
+        })
+        console.log('fetch rn');
+
+    // xmlhttprequest
+    } else {
+        var xmreq = new XMLHttpRequest();
+        xmreq.open('DELETE','https://httpbin.org/delete?'+ queryString);
+        xmreq.onload = () => {
+            if (xmreq.readyState == XMLHttpRequest.DONE){
+                outputText.innerHTML = xmreq.responseText;
+            }
+        } 
+        xmreq.send(formData);
+        console.log('xmlhttprequest rn');
+    }
 }
